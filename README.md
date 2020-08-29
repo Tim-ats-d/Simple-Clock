@@ -2,7 +2,7 @@
 
 A simple clock coded in Python using ```curses``` librairie.
 
-!(text)[lien]
+![image](https://raw.githubusercontent.com/Tim-ats-d/Simple-Clock/master/assets/Screenshot_20200829_160942.png)
 
 ### Requirement
-* (curses)[https://en.wikipedia.org/wiki/Curses_(programming_library)] librairie. Available by default on UNIX systems.
+* [curses](https://en.wikipedia.org/wiki/Curses_(programming_library)) librairie. Available by default on UNIX systems.
