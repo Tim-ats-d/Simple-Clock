@@ -6,4 +6,4 @@ A simple clock coded in Python using ```curses``` librairie.
 
 ### Requirement
 * Python 3.6 or more.
-* [curses](https://en.wikipedia.org/wiki/Curses_(programming_library)) librairie. Available by default on UNIX systems.
+* [curses](https://en.wikipedia.org/wiki/Curses_(programming_library)) librairie available by default on UNIX systems.
