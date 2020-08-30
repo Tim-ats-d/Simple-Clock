@@ -60,7 +60,6 @@ def grid(length: int, width: int, centersize: int) -> str:
 
     starting_line = f"╔{length*'═'}╗".center(centersize)
     end_line = f"╚{length*'═'}╝".center(centersize)
-    print(starting_line)
 
     return "".join((starting_line, "".join((f"║{' '*length}║".center(centersize) for line in range(width))), end_line))
 
