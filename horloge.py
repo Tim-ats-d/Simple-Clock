@@ -82,15 +82,16 @@ def screen(stdscr):
 
     statusbar = "The time was given to you by Tim."
 
-    start_x_hour = centrer(hour())
+    start_x_time = centrer(hour())
     start_x_statusbar = centrer(statusbar)
 
     stdscr.addstr(7, 0, grid(40, 5, ROWS))
-    stdscr.addstr(9, start_x_hour, date(), curses.color_pair(1))
+
     stdscr.addstr(18, start_x_statusbar, statusbar, curses.color_pair(2))
 
     while 1:
-        stdscr.addstr(11, start_x_hour, hour(), curses.color_pair(1))
+        stdscr.addstr(9, start_x_time, date(), curses.color_pair(1))
+        stdscr.addstr(11, start_x_time, hour(), curses.color_pair(1))
         stdscr.addstr(15, 0, f"{day_flow()} % of the day elapsed.".center(ROWS), curses.color_pair(1))
 
         stdscr.refresh()

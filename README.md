@@ -2,7 +2,7 @@
 
 A simple clock coded in Python using ```curses``` librairie.
 
-![image](https://raw.githubusercontent.com/Tim-ats-d/Simple-Clock/master/assets/Screenshot_20200830_000804.png)
+![image](https://raw.githubusercontent.com/Tim-ats-d/Simple-Clock/master/assets/image.png)
 
 ### Requirement
 * Python 3.6 or more.
