@@ -1,76 +1,55 @@
-import datetime
 import curses
-import time
+import datetime
 import os
-
+import time
 
 
 ROWS, COLS = os.get_terminal_size()
 
-def centrer(string: str):
-    """
-        Returns centering calculations depending on the length of string.
-    """
-
+def centrer(string: str) -> int:
+    """Returns centering calculations depending on the length of string."""
     return int((ROWS//2) - (len(string)//2) - len(string)%2)
 
 
-
 def hour() -> str:
-    """
-        Returns a string containing current hour, minute and second.
-    """
-
+    """Returns a string containing current hour, minute and second."""
     return time.strftime("%H:%M:%S")
 
 
-
 def date() -> str:
-    """
-        Returns a string containing current day, month, year.
-    """
-
+    """Returns a string containing current day, month, year."""
     return time.strftime("%d/%m/%y")
 
 
-
 def day_flow() -> str:
-    """
-        Returns a string containing the percentage of the day elapsed.
-    """
-
+    """Returns a string containing the percentage of the day elapsed."""
     current_hour = datetime.datetime.now()
     percentage_day_elapsed = round(
-                                        datetime.timedelta(
-                                                            hours=current_hour.hour,
-                                                            minutes=current_hour.minute,
-                                                            seconds=current_hour.second
-                                                          ).total_seconds()/86400*100,
-                                        2
-                                      )
+                                   datetime.timedelta(
+                                                      hours=current_hour.hour,
+                                                      minutes=current_hour.minute,
+                                                      seconds=current_hour.second
+                                                     ).total_seconds()/86400*100,
+                                   2
+                                  )
 
     return str(percentage_day_elapsed)
 
 
-
 def grid(length: int, width: int, centersize: int) -> str:
-    """
-        Prints a grid in ASCII character with length and width centersize centered to centersize.
-    """
-
+    """Returns a grid in ASCII character with length and width centersize centered to centersize."""
     starting_line = f"╔{length*'═'}╗".center(centersize)
     end_line = f"╚{length*'═'}╝".center(centersize)
 
-    return "".join((starting_line, "".join((f"║{' '*length}║".center(centersize) for line in range(width))), end_line))
+    return "".join(
+                   (starting_line,
+                    "".join((f"║{' '*length}║".center(centersize) for line in range(width)))
+                    , end_line)
+                  )
 
 
-
-
-def screen(stdscr):
-    """
-        curses rendering.
-    """
-
+def main(stdscr):
+    """curses rendering."""
     stdscr.clear()
     curses.curs_set(0)
     curses.resizeterm(COLS, ROWS)
@@ -85,7 +64,6 @@ def screen(stdscr):
     start_x_statusbar = centrer(statusbar)
 
     stdscr.addstr(7, 0, grid(40, 5, ROWS))
-
     stdscr.addstr(18, start_x_statusbar, statusbar, curses.color_pair(2))
 
     while 1:
@@ -97,6 +75,5 @@ def screen(stdscr):
         time.sleep(1)
 
 
-
 if __name__ == "__main__":
-    curses.wrapper(screen)
+    curses.wrapper(main)
